@@ -293,10 +293,12 @@ function Mode:get_user_input()
 	-- set the global input variable to the new input.
 	self.input:set(user_input)
 
-	if 0 <= tonumber(user_input) and tonumber(user_input) <= 9 or not tonumber(user_input) == nil then
-		local oldCount = self.count:get()
-		local newCount = tonumber(oldCount .. string.char(user_input))
-		self.count:set(newCount)
+	if not tonumber(user_input) == nil
+		if 0 <= tonumber(user_input) and tonumber(user_input) <= 9 or not tonumber(user_input) == nil then
+			local oldCount = self.count:get()
+			local newCount = tonumber(oldCount .. string.char(user_input))
+			self.count:set(newCount)
+		end
 	end
 
 	if not self.supress_exit and user_input == globals.ESC_NR then -- the user wants to exit.
