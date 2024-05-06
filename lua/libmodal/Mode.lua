@@ -293,7 +293,7 @@ function Mode:get_user_input()
 	-- set the global input variable to the new input.
 	self.input:set(user_input)
 
-	if tonumber(user_input) ~= nil and 0 <= tonumber(user_input) and tonumber(user_input) <= 9 or not tonumber(user_input) == nil then
+	if user_input ~= nil and ZERO <= user_input and user_input <= NINE then
 		local oldCount = self.count:get()
 		local newCount = tonumber(oldCount .. string.char(user_input))
 		self.count:set(newCount)
